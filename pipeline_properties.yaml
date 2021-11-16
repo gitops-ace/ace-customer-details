@@ -1,0 +1,7 @@
+integrationServer:
+  applicationNames:
+    - createcustomerrestcallingws
+  releaseName: create-customer-details-rest
+  endpoint-path: createcustomerrestcallingws/v1/createcustomer
+
+

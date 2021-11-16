@@ -1,0 +1,109 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "createcustomerrestcallingws",
+    "version" : "1.0.0",
+    "description" : "createcustomerrestcallingws"
+  },
+  "paths" : {
+    "/createcustomer" : {
+      "post" : {
+        "operationId" : "postCreatecustomer",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/customer_details_response"
+            }
+          },
+          "400" : {
+            "description" : "The operation was not successful.",
+            "schema" : {
+              "$ref" : "#/definitions/fault"
+            }
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a createcustomer",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/customer_details"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/createcustomerrestcallingws/v1",
+  "definitions" : {
+    "customer_details_response" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "type" : "string"
+        },
+        "customerId" : {
+          "type" : "string"
+        }
+      }
+    },
+    "customer_details" : {
+      "type" : "object",
+      "properties" : {
+        "service_header" : {
+          "type" : "object",
+          "properties" : {
+            "brand" : {
+              "type" : "string"
+            }
+          }
+        },
+        "personal_details" : {
+          "type" : "object",
+          "properties" : {
+            "name_details" : {
+              "type" : "object",
+              "properties" : {
+                "first_name" : {
+                  "type" : "string"
+                },
+                "last_name" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "contact_details" : {
+              "type" : "object",
+              "properties" : {
+                "phone" : {
+                  "type" : "string"
+                },
+                "address" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "fault" : {
+      "type" : "object",
+      "properties" : {
+        "error" : {
+          "type" : "string"
+        },
+        "details" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
